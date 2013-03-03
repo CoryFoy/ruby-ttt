@@ -3,4 +3,4 @@ Ruby Tic Tac Toe
 
 To Use:
 
-$ ruby lib/tictactoe
+$ ruby lib/game.rb
