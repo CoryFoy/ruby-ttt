@@ -33,21 +33,24 @@ describe BoardPresenter do
       board.stub(:wins_for).with(:o) { false }
       presenter = BoardPresenter.new(board)
       presenter.stub(:print_board) { "" }
-      presenter.print_winner.chomp.should == "X Wins!"
+      presenter.should_receive(:puts).with("X Wins!\n")
+      presenter.print_winner
     end
     it "prints Y as the winner when O wins" do
       board.stub(:wins_for).with(:x) { false }
       board.stub(:wins_for).with(:o) { true }
       presenter = BoardPresenter.new(board)
       presenter.stub(:print_board) { "" }
-      presenter.print_winner.chomp.should == "O Wins!"
+      presenter.should_receive(:puts).with("O Wins!\n")
+      presenter.print_winner
     end
     it "prints X as the winner when X wins" do
       board.stub(:wins_for).with(:x) { false }
       board.stub(:wins_for).with(:o) { false }
       presenter = BoardPresenter.new(board)
       presenter.stub(:print_board) { "" }
-      presenter.print_winner.chomp.should == "Draw Game"
+      presenter.should_receive(:puts).with("Draw Game\n")
+      presenter.print_winner
     end
   end
 
