@@ -10,7 +10,6 @@ class Game
     negamax.move_checked << presenter.move_checked
 
     while(board.is_playing?)
-      puts presenter.print_board
       move = presenter.get_next_move
       board.move(:x, move)
       presenter.before_moves_check

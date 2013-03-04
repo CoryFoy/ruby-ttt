@@ -12,6 +12,12 @@ class BoardPresenter < Presenter
     puts ""
   end
 
+  def get_next_move
+    print_board
+    puts "Move: "
+    return gets.chomp
+  end
+
   def initialize(game_board)
     @game_board = game_board
     @board = game_board.board
