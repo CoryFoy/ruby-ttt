@@ -1,4 +1,16 @@
-class BoardPresenter
+class BoardPresenter < Presenter
+
+  def before_moves_check
+    print "Checking moves: "
+  end
+
+  def move_checked
+    lambda { |move| print "#{move} " }
+  end
+
+  def moves_check_completed
+    puts ""
+  end
 
   def initialize(game_board)
     @game_board = game_board

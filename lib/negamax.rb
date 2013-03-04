@@ -35,7 +35,7 @@ class Negamax
   end
 
   def move_checked_event(move)
-    @move_checked_listeners.each { |listener| listener.call(move) }
+    @move_checked_listeners.each { |listener| listener.call(move) if listener }
   end
 
   def next_move_for(player)
