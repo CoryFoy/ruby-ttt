@@ -33,6 +33,6 @@ class BoardPresenter < Presenter
     elsif @game_board.wins_for(:o)
       result = "O Wins!"
     end
-    result + "\n" + print_board
+    puts result + "\n" + print_board
   end
 end

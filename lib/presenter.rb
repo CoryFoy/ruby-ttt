@@ -9,4 +9,13 @@ class Presenter
   def moves_check_completed
   end
 
+  def get_next_move
+    puts "Move: "
+    return gets.chomp
+  end
+
+  def game_over
+    puts "Game Over"
+  end
+
 end

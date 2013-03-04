@@ -11,8 +11,7 @@ class Game
 
     while(board.is_playing?)
       puts presenter.print_board
-      puts "Move: "
-      move = gets.chomp
+      move = presenter.get_next_move
       board.move(:x, move)
       presenter.before_moves_check
       next_move = negamax.next_move_for(:o)
@@ -21,8 +20,8 @@ class Game
       board.move(:o, next_move.first)
     end
 
-    puts "Game Over"
-    puts presenter.print_winner
+    presenter.game_over
+    presenter.print_winner
   end
 
 end

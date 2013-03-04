@@ -2,6 +2,7 @@ require 'serialport'
 class ArduinoBoardPresenter < Presenter
 
   def before_moves_check
+    print_board
     @board_presenter.before_moves_check
   end
 
