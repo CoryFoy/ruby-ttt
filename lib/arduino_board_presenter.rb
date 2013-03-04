@@ -16,6 +16,11 @@ class ArduinoBoardPresenter < Presenter
     end
   end
 
+  def get_next_move
+    print_board
+    super
+  end
+
   def moves_check_completed
     @board_presenter.moves_check_completed
   end

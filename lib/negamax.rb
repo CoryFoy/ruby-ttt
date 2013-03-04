@@ -46,7 +46,6 @@ class Negamax
       move_checked_event(move)
       moves[move] = -Negamax.for(dup_board, Negamax.opponent_for(player))
     end
-    puts moves.inspect
 
     return moves.max { |a,b| a[1] <=> b[1] }
   end

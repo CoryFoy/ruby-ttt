@@ -29,6 +29,7 @@ class BoardPresenter < Presenter
     line_length.times do |i|
       output += @board.slice(i*line_length, line_length).join(' | ') + "\n"
     end
+    puts output
     output
   end
 
@@ -39,6 +40,7 @@ class BoardPresenter < Presenter
     elsif @game_board.wins_for(:o)
       result = "O Wins!"
     end
-    puts result + "\n" + print_board
+    puts result + "\n"
+    print_board
   end
 end
