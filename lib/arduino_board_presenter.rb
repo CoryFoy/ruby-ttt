@@ -1,5 +1,12 @@
 require 'serialport'
+
 class ArduinoBoardPresenter < Presenter
+
+  ARDUINO_PORT = "/dev/tty.usbmodemfd121"
+
+  def self.wait_for_player(callback)
+    monitor = ArduinoPlayerMonitor.new(callback)
+  end
 
   def before_moves_check
     print_board
@@ -16,6 +23,14 @@ class ArduinoBoardPresenter < Presenter
     end
   end
 
+  def bad_move
+    lambda { alert; return true }
+  end
+
+  def alert
+    @comm.putc(13)
+  end
+
   def get_next_move
     print_board
     super
@@ -27,7 +42,7 @@ class ArduinoBoardPresenter < Presenter
 
   def initialize(game_board)
     @board_presenter = BoardPresenter.new(game_board)
-    port = "/dev/tty.usbmodemfa131"
+    port = ARDUINO_PORT
     @comm = SerialPort.new(port)
     @game_board = game_board
     @board = game_board.board
@@ -68,6 +83,7 @@ class ArduinoBoardPresenter < Presenter
     else
       [1,4,7,3,5].each { |i| take_position(i) }
     end
+    @comm.putc(99)
     sleep(5)
   end
 end

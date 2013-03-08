@@ -9,6 +9,10 @@ class Presenter
   def moves_check_completed
   end
 
+  def bad_move
+    lambda { puts "Invalid move"; return true; }
+  end
+
   def get_next_move
     puts "Move: "
     return gets.chomp

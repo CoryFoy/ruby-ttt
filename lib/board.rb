@@ -5,7 +5,7 @@ class Board
   end
 
   def is_valid_move?(move)
-    open_moves.include?(move)
+    open_moves.include?(move.to_i)
   end
 
   def board
